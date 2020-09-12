@@ -1,0 +1,19 @@
+{
+  "name": "snake_socket",
+  "version": "1.0.0",
+  "description": "",
+  "main": "\u001b[D\u001b[C",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andreilucalink/SNEK.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andreilucalink/SNEK/issues"
+  },
+  "homepage": "https://github.com/andreilucalink/SNEK#readme"
+}
