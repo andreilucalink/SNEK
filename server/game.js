@@ -52,7 +52,9 @@ function createGameState() {
 }
 
 function gameLoop(state) {
-  if (!state) return;
+  if (!state) {
+    return;
+  }
 
   const playerOne = state.players[0];
   const playerTwo = state.players[1];
@@ -136,11 +138,13 @@ function randomFood(state) {
       return randomFood(state);
     }
   }
+
   for (let cell of state.players[1].snake) {
     if (cell.x === food.x && cell.y === food.y) {
       return randomFood(state);
     }
   }
+
   state.food = food;
 }
 
@@ -150,17 +154,14 @@ function getUpdatedVelocity(keyCode) {
       // left
       return { x: -1, y: 0 };
     }
-
     case 38: {
       // down
       return { x: 0, y: -1 };
     }
-
     case 39: {
       // right
       return { x: 1, y: 0 };
     }
-
     case 40: {
       // up
       return { x: 0, y: 1 };

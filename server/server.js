@@ -1,6 +1,6 @@
 const io = require("socket.io")();
-const { makeid } = require("./utils");
 
+const { makeid } = require("./utils");
 const { initGame, gameLoop, getUpdatedVelocity } = require("./game");
 const { FRAME_RATE } = require("./constants");
 
@@ -48,6 +48,7 @@ io.on("connection", (client) => {
     client.emit("gameCode", roomName);
 
     state[roomName] = initGame();
+
     client.join(roomName);
     client.number = 1;
     client.emit("init", 1);
@@ -58,7 +59,6 @@ io.on("connection", (client) => {
     if (!roomName) {
       return;
     }
-
     try {
       keyCode = parseInt(keyCode);
     } catch (e) {
@@ -67,6 +67,7 @@ io.on("connection", (client) => {
     }
 
     const vel = getUpdatedVelocity(keyCode);
+
     if (vel) {
       state[roomName].players[client.number - 1].vel = vel;
     }

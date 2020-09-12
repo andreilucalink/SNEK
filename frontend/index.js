@@ -1,17 +1,16 @@
 const BG_COLOR = "#2C001E";
-// const BG_COLOR = "#5E2750";
 const SNAKE_COLOR = "#f4f4f4";
 const SNAKE_COLOR_TWO = "#68b0ab";
 const FOOD_COLOR = "#e66916";
 
-const socket = io("https://link-snek.netlify.app");
 // const socket = io("http://localhost:3000");
+const socket = io("https://test-snake123.netlify.app/");
 
 socket.on("init", handleInit);
 socket.on("gameState", handleGameState);
 socket.on("gameOver", handleGameOver);
 socket.on("gameCode", handleGameCode);
-socket.on("unknownCode", handleUnknownGame);
+socket.on("unknownCode", handleUnknownCode);
 socket.on("tooManyPlayers", handleTooManyPlayers);
 
 const gameScreen = document.getElementById("gameScreen");
@@ -35,7 +34,8 @@ function joinGame() {
   init();
 }
 
-let canvas, ctx, playerNumber, gameActive;
+let canvas, ctx, playerNumber;
+let gameActive = false;
 
 function init() {
   initialScreen.style.display = "none";
@@ -96,19 +96,21 @@ function handleGameOver(data) {
     return;
   }
   data = JSON.parse(data);
+
+  gameActive = false;
+
   if (data.winner === playerNumber) {
     alert("You win!");
   } else {
     alert("You L O S T");
   }
-  gameActive = false;
 }
 
 function handleGameCode(gameCode) {
   gameCodeDisplay.innerText = gameCode;
 }
 
-function handleUnknownGame() {
+function handleUnknownCode() {
   resetUI();
   alert("Unknown game code");
 }
@@ -120,8 +122,7 @@ function handleTooManyPlayers() {
 
 function resetUI() {
   playerNumber = null;
-  gameCodeDisplay.value = "";
-  gameCodeDisplay.innerText = "";
+  gameCodeInput.value = "";
   initialScreen.style.display = "block";
   gameScreen.style.display = "none";
 }
