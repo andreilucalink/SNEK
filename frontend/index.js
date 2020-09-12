@@ -4,7 +4,8 @@ const SNAKE_COLOR_TWO = "#68b0ab";
 const FOOD_COLOR = "#e66916";
 
 // const socket = io("http://localhost:3000");
-const socket = io("http://link-snek.netlify.app/");
+io.origins("*:*");
+const socket = io("https://link-snek.netlify.app/");
 
 socket.on("init", handleInit);
 socket.on("gameState", handleGameState);
