@@ -4,7 +4,7 @@ const SNAKE_COLOR_TWO = "#68b0ab";
 const FOOD_COLOR = "#e66916";
 
 // const socket = io("http://localhost:3000");
-const socket = io("https://test-snake123.netlify.app/");
+const socket = io("http://test-snake123.netlify.app/");
 
 socket.on("init", handleInit);
 socket.on("gameState", handleGameState);
