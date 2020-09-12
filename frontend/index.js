@@ -5,7 +5,7 @@ const FOOD_COLOR = "#e66916";
 
 // const socket = io("http://localhost:3000");
 const socket = io(
-  "https://cors-anywhere.herokuapp.com/https://sleepy-island-33889.herokuapp.com/"
+  "https://api.allorigins.win/raw?url=https://sleepy-island-33889.herokuapp.com/"
 );
 
 socket.on("init", handleInit);
