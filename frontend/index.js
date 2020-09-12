@@ -4,9 +4,8 @@ const SNAKE_COLOR_TWO = "#68b0ab";
 const FOOD_COLOR = "#e66916";
 
 // const socket = io("http://localhost:3000");
-const socket = io(
-  "https://api.allorigins.win/raw?url=https://sleepy-island-33889.herokuapp.com/"
-);
+// https://api.allorigins.win/raw?url=https://blabla
+const socket = io("https://sleepy-island-33889.herokuapp.com/");
 
 socket.on("init", handleInit);
 socket.on("gameState", handleGameState);
