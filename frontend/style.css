@@ -1,0 +1,16 @@
+#title {
+  font-size: 60px;
+  letter-spacing: 15px;
+  margin-bottom: 20px;
+}
+
+#gameScreen {
+  display: none;
+}
+
+body {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  background: #f4f4f4;
+}
